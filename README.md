@@ -11,7 +11,7 @@
 
 ---
 
-## 🖼️ Preview
+## 🖼️ Preview / Power BI
 
 | Página 1 — Visão Geral | Página 2 — Análise de Churn & Regiões |
 |------------------------|----------------------------------------|
