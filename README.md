@@ -13,9 +13,14 @@
 
 ## 🖼️ Preview
 
-| Página 1 — Visão Geral | Página 2 — Análise de Churn & Regiões |
+| Projeto Power BI | Página 1 — Visão Geral | Página 2 — Análise de Churn & Regiões | 
 |---|---|
 | ![Dashboard Página 1](dashboard_page1.png) | ![Dashboard Página 2](dashboard_page2.png) |
+
+---
+Dashboard Ao Vivo 
+
+[🔗 Clique Aqui para ver o Dashboard](https://jottamarcos.github.io/Saas_/)
 
 ---
 
