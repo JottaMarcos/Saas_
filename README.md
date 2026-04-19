@@ -188,10 +188,10 @@ Os dados do arquivo `.xlsx` foram validados contra os visuais do dashboard:
 
 ## 👤 Autor
 
-Desenvolvido por **João Marcos**
+**João Marcos** — Data Analyst 
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin)](https://linkedin.com)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=flat&logo=github)](https://github.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/joão-marcos-347311230)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/JottaMarcos)
 
 ---
 
