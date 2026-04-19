@@ -15,7 +15,7 @@
 
 | Página 1 — Visão Geral | Página 2 — Análise de Churn & Regiões |
 |---|---|
-| ![Dashboard Página 1](dashboard_page1.png) | ![Dashboard Página 2](assets/dashboard_page2.png) |
+| ![Dashboard Página 1](dashboard_page1.png) | ![Dashboard Página 2](dashboard_page2.png) |
 
 ---
 
