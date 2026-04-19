@@ -35,7 +35,6 @@
     overflow-x: hidden;
   }
 
-  /* Noise texture overlay */
   body::before {
     content: '';
     position: fixed;
@@ -51,13 +50,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 24px 36px;
+    padding: 20px 36px;
     border-bottom: 1px solid var(--card-border);
     background: linear-gradient(135deg, var(--bg-2) 0%, #0d1a12 100%);
     position: sticky;
     top: 0;
     z-index: 100;
     backdrop-filter: blur(20px);
+    flex-wrap: wrap;
+    gap: 12px;
   }
 
   .logo-area {
@@ -76,12 +77,10 @@
     color: var(--bg);
     letter-spacing: 1px;
     box-shadow: 0 0 20px rgba(0,229,160,0.3);
+    flex-shrink: 0;
   }
 
-  .logo-text {
-    display: flex;
-    flex-direction: column;
-  }
+  .logo-text { display: flex; flex-direction: column; }
 
   .logo-title {
     font-family: 'Bebas Neue', sans-serif;
@@ -101,7 +100,8 @@
   .header-right {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
+    flex-wrap: wrap;
   }
 
   .live-badge {
@@ -152,11 +152,13 @@
     align-items: flex-end;
     justify-content: space-between;
     margin-bottom: 4px;
+    flex-wrap: wrap;
+    gap: 12px;
   }
 
   .page-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 48px;
+    font-size: clamp(36px, 6vw, 48px);
     letter-spacing: 4px;
     background: linear-gradient(90deg, var(--green-1) 0%, #fff 60%);
     -webkit-background-clip: text;
@@ -178,24 +180,26 @@
     border: 1px solid var(--card-border);
     padding: 6px 12px;
     border-radius: 6px;
+    white-space: nowrap;
   }
 
   /* KPI ROW */
   .kpi-row {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
+    gap: 14px;
   }
 
   .kpi-card {
     background: var(--card);
     border: 1px solid var(--card-border);
     border-radius: 16px;
-    padding: 22px 24px;
+    padding: 20px 18px;
     position: relative;
     overflow: hidden;
     transition: border-color 0.3s, transform 0.3s;
     animation: fadeInUp 0.5s ease both;
+    min-width: 0;
   }
 
   .kpi-card:hover {
@@ -224,24 +228,27 @@
   }
 
   .kpi-label {
-    font-size: 11px;
+    font-size: 10px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     color: var(--text-muted);
-    font-weight: 500;
-    margin-bottom: 10px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .kpi-value {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 38px;
+    font-size: clamp(26px, 3vw, 38px);
     letter-spacing: 1px;
     color: var(--white);
     line-height: 1;
   }
 
   .kpi-value span {
-    font-size: 20px;
+    font-size: clamp(14px, 1.8vw, 20px);
     color: var(--green-1);
     font-family: 'Bebas Neue', sans-serif;
   }
@@ -251,17 +258,18 @@
     align-items: center;
     gap: 4px;
     margin-top: 8px;
-    font-size: 11px;
+    font-size: 10px;
     color: var(--green-1);
     background: rgba(0,229,160,0.1);
     padding: 3px 8px;
     border-radius: 20px;
+    white-space: nowrap;
   }
 
   .kpi-icon {
     position: absolute;
-    bottom: 14px; right: 18px;
-    font-size: 32px;
+    bottom: 14px; right: 14px;
+    font-size: 28px;
     opacity: 0.07;
   }
 
@@ -290,17 +298,18 @@
     border-radius: 16px;
     padding: 24px;
     animation: fadeInUp 0.6s ease both;
+    min-width: 0;
   }
 
-  .section-card:hover {
-    border-color: rgba(0,229,160,0.2);
-  }
+  .section-card:hover { border-color: rgba(0,229,160,0.2); }
 
   .section-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 6px;
   }
 
   .section-title {
@@ -318,196 +327,72 @@
     letter-spacing: 1px;
   }
 
-  /* CHARTS */
-  .chart-wrap {
-    position: relative;
-    width: 100%;
-  }
+  .chart-wrap { position: relative; width: 100%; }
 
   /* SECTOR RANKING */
-  .sector-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
+  .sector-list { display: flex; flex-direction: column; gap: 12px; }
 
-  .sector-item {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
+  .sector-item { display: flex; flex-direction: column; gap: 5px; }
 
   .sector-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 8px;
   }
 
-  .sector-name {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text);
-  }
+  .sector-name { font-size: 13px; font-weight: 500; color: var(--text); white-space: nowrap; }
+  .sector-val { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--green-1); font-weight: 700; white-space: nowrap; }
 
-  .sector-val {
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    color: var(--green-1);
-    font-weight: 700;
-  }
+  .sector-bar-bg { height: 5px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden; }
+  .sector-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--green-3), var(--green-1)); transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
 
-  .sector-bar-bg {
-    height: 5px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 3px;
-    overflow: hidden;
-  }
-
-  .sector-bar-fill {
-    height: 100%;
-    border-radius: 3px;
-    background: linear-gradient(90deg, var(--green-3), var(--green-1));
-    transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
-  }
-
-  /* PAYMENT METHODS */
-  .payment-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
+  /* PAYMENT */
+  .payment-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
   .payment-item {
     background: rgba(0,229,160,0.04);
     border: 1px solid var(--card-border);
     border-radius: 10px;
-    padding: 14px 16px;
+    padding: 12px 14px;
     display: flex;
     flex-direction: column;
     gap: 4px;
     transition: background 0.3s;
   }
 
-  .payment-item:hover {
-    background: rgba(0,229,160,0.08);
-  }
+  .payment-item:hover { background: rgba(0,229,160,0.08); }
 
-  .payment-method {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--text-muted);
-    font-weight: 600;
-  }
+  .payment-method { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); font-weight: 600; }
+  .payment-count { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--white); line-height: 1; }
+  .payment-pct { font-size: 11px; color: var(--green-1); }
 
-  .payment-count {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    color: var(--white);
-    line-height: 1;
-  }
+  /* STATUS */
+  .status-list { display: flex; flex-direction: column; gap: 10px; }
 
-  .payment-pct {
-    font-size: 11px;
-    color: var(--green-1);
-  }
+  .status-item { display: flex; align-items: center; gap: 10px; }
 
-  /* STATUS CLIENTS */
-  .status-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+  .status-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
 
-  .status-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+  .status-info { flex: 1; display: flex; justify-content: space-between; align-items: center; }
 
-  .status-dot {
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
+  .status-name { font-size: 13px; color: var(--text); }
 
-  .status-info {
-    flex: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .status-name {
-    font-size: 13px;
-    color: var(--text);
-  }
-
-  .status-pct {
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    font-weight: 700;
-  }
+  .status-pct { font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; }
 
   /* REGION */
-  .region-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+  .region-list { display: flex; flex-direction: column; gap: 10px; }
 
-  .region-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+  .region-item { display: flex; align-items: center; gap: 10px; }
 
-  .region-rank {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
-    color: var(--text-dim);
-    width: 24px;
-    text-align: right;
-    line-height: 1;
-  }
-
-  .region-name {
-    font-family: 'Space Mono', monospace;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--green-1);
-    width: 30px;
-  }
-
-  .region-bar-bg {
-    flex: 1;
-    height: 6px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 3px;
-    overflow: hidden;
-  }
-
-  .region-bar-fill {
-    height: 100%;
-    border-radius: 3px;
-    background: linear-gradient(90deg, var(--green-4), var(--green-1));
-    transition: width 1.5s cubic-bezier(0.4,0,0.2,1);
-  }
-
-  .region-val {
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    color: var(--text-muted);
-    width: 72px;
-    text-align: right;
-  }
+  .region-rank { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--text-dim); width: 24px; text-align: right; line-height: 1; flex-shrink: 0; }
+  .region-name { font-family: 'Space Mono', monospace; font-size: 14px; font-weight: 700; color: var(--green-1); width: 30px; flex-shrink: 0; }
+  .region-bar-bg { flex: 1; height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden; min-width: 0; }
+  .region-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--green-4), var(--green-1)); transition: width 1.5s cubic-bezier(0.4,0,0.2,1); }
+  .region-val { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--text-muted); width: 72px; text-align: right; flex-shrink: 0; }
 
   /* INSIGHTS */
-  .insights-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 14px;
-  }
+  .insights-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
 
   .insight-card {
     background: var(--bg-3);
@@ -519,70 +404,32 @@
   }
 
   .insight-card:hover { transform: translateY(-2px); }
-
   .insight-card.warn { border-left-color: var(--yellow); }
   .insight-card.danger { border-left-color: var(--red); }
   .insight-card.info { border-left-color: #6ee7f7; }
 
   .insight-icon { font-size: 20px; margin-bottom: 8px; }
+  .insight-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); font-weight: 600; margin-bottom: 4px; }
+  .insight-text { font-size: 13px; color: var(--text); line-height: 1.5; }
 
-  .insight-title {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--text-muted);
-    font-weight: 600;
-    margin-bottom: 4px;
-  }
-
-  .insight-text {
-    font-size: 13px;
-    color: var(--text);
-    line-height: 1.5;
-  }
-
-  /* PLANS TABLE */
-  .plans-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-  }
+  /* PLANS */
+  .plans-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
 
   .plan-card {
     background: rgba(0,229,160,0.04);
     border: 1px solid var(--card-border);
     border-radius: 10px;
-    padding: 14px;
+    padding: 12px;
     text-align: center;
     transition: all 0.3s;
+    min-width: 0;
   }
 
-  .plan-card:hover {
-    background: rgba(0,229,160,0.09);
-    border-color: rgba(0,229,160,0.3);
-  }
+  .plan-card:hover { background: rgba(0,229,160,0.09); border-color: rgba(0,229,160,0.3); }
 
-  .plan-name {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--text-muted);
-    margin-bottom: 6px;
-    font-weight: 600;
-  }
-
-  .plan-count {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 30px;
-    color: var(--white);
-    line-height: 1;
-  }
-
-  .plan-label {
-    font-size: 10px;
-    color: var(--text-dim);
-    margin-top: 2px;
-  }
+  .plan-name { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 6px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .plan-count { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--white); line-height: 1; }
+  .plan-label { font-size: 10px; color: var(--text-dim); margin-top: 2px; }
 
   /* DIVIDER */
   .divider-label {
@@ -596,12 +443,7 @@
     font-weight: 600;
   }
 
-  .divider-label::before, .divider-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--card-border);
-  }
+  .divider-label::before, .divider-label::after { content: ''; flex: 1; height: 1px; background: var(--card-border); }
 
   /* FOOTER */
   footer {
@@ -617,11 +459,73 @@
   footer a { color: var(--green-1); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
 
-  /* Scrollbar */
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--green-4); border-radius: 3px; }
   ::-webkit-scrollbar-thumb:hover { background: var(--green-3); }
+
+  /* ===================== RESPONSIVO ===================== */
+
+  /* Tablet */
+  @media (max-width: 1024px) {
+    main { padding: 20px 24px; }
+
+    .kpi-row { grid-template-columns: repeat(3, 1fr); }
+    .kpi-card:nth-child(4),
+    .kpi-card:nth-child(5) { grid-column: span 1; }
+
+    .grid-3 { grid-template-columns: 1fr 1fr; }
+    .grid-3 .section-card:last-child { grid-column: span 2; }
+
+    .grid-3b { grid-template-columns: 1fr 1fr; }
+    .grid-3b .section-card:first-child { grid-column: span 2; }
+
+    .insights-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    header { padding: 16px 20px; }
+    main { padding: 16px; gap: 16px; }
+
+    .author-tag { display: none; }
+
+    .page-header { flex-direction: column; align-items: flex-start; }
+    .period-tag { font-size: 11px; }
+
+    /* KPIs: 2 colunas no mobile */
+    .kpi-row {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    /* Faturamento Perdido ocupa linha inteira */
+    .kpi-card:nth-child(5) { grid-column: span 2; }
+
+    .kpi-label { font-size: 9px; letter-spacing: 1px; }
+    .kpi-value { font-size: 28px; }
+    .kpi-value span { font-size: 15px; }
+    .kpi-icon { font-size: 22px; }
+
+    /* Grids viram coluna única */
+    .grid-2,
+    .grid-3,
+    .grid-3b { grid-template-columns: 1fr; }
+
+    .grid-3 .section-card:last-child,
+    .grid-3b .section-card:first-child { grid-column: span 1; }
+
+    /* Plans: 2x2 no mobile */
+    .plans-grid { grid-template-columns: repeat(2, 1fr); }
+
+    /* Insights: 1 coluna no mobile */
+    .insights-grid { grid-template-columns: 1fr; }
+
+    .region-val { display: none; }
+    .region-name { font-size: 12px; }
+
+    footer { padding: 16px 20px; font-size: 11px; }
+  }
 </style>
 </head>
 <body>
@@ -642,7 +546,6 @@
 
 <main>
 
-  <!-- PAGE HEADER -->
   <div class="page-header">
     <div>
       <div class="page-title">DESEMPENHO SaaS</div>
@@ -655,13 +558,13 @@
   <div class="kpi-row">
     <div class="kpi-card">
       <div class="kpi-label">Receita Bruta</div>
-      <div class="kpi-value"><span>$</span>1,5 Mi</div>
+      <div class="kpi-value"><span>R$</span>1,5 Mi</div>
       <div class="kpi-badge">↑ Total acumulado</div>
       <div class="kpi-icon">💰</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-label">Receita Líquida</div>
-      <div class="kpi-value"><span>$</span>1,1 Mi</div>
+      <div class="kpi-value"><span>R$</span>1,1 Mi</div>
       <div class="kpi-badge">↑ Após descontos</div>
       <div class="kpi-icon">📈</div>
     </div>
@@ -673,19 +576,19 @@
     </div>
     <div class="kpi-card">
       <div class="kpi-label">Ticket Médio</div>
-      <div class="kpi-value"><span>$</span>288,7</div>
+      <div class="kpi-value"><span>R$</span>288,7</div>
       <div class="kpi-badge">↑ Por transação</div>
       <div class="kpi-icon">🎯</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-label">Faturamento Perdido</div>
-      <div class="kpi-value" style="color: #ff4d6d;"><span style="color:#ff4d6d;">$</span>196 Mil</div>
-      <div class="kpi-badge" style="color:var(--red); background:rgba(255,77,109,0.1);">⚠ Churn</div>
+      <div class="kpi-value" style="color:#ff4d6d;"><span style="color:#ff4d6d;">R$</span>196 Mil</div>
+      <div class="kpi-badge" style="color:var(--red);background:rgba(255,77,109,0.1);">⚠ Churn</div>
       <div class="kpi-icon">📉</div>
     </div>
   </div>
 
-  <!-- ROW 2: Revenue line + Plans -->
+  <!-- ROW 2 -->
   <div class="grid-2">
     <div class="section-card" style="animation-delay:0.2s">
       <div class="section-header">
@@ -730,7 +633,7 @@
     </div>
   </div>
 
-  <!-- ROW 3: Sectors + Payments + Renewal -->
+  <!-- ROW 3 -->
   <div class="grid-3">
     <div class="section-card" style="animation-delay:0.3s">
       <div class="section-header">
@@ -745,7 +648,7 @@
         <div class="section-title">Pagamentos</div>
         <div class="section-badge">DISTRIBUIÇÃO</div>
       </div>
-      <div style="height:160px; margin-bottom:16px">
+      <div style="height:160px;margin-bottom:16px">
         <canvas id="paymentDonut"></canvas>
       </div>
       <div class="payment-grid">
@@ -777,64 +680,52 @@
         <div class="section-title">Taxa de Renovação</div>
         <div class="section-badge">RETENÇÃO</div>
       </div>
-      <div style="height:160px; margin-bottom:16px; display:flex; align-items:center; justify-content:center;">
+      <div style="height:160px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;">
         <canvas id="renewalChart"></canvas>
       </div>
-      <div style="display:flex; flex-direction:column; gap:10px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 14px; background:rgba(0,229,160,0.07); border-radius:8px; border:1px solid rgba(0,229,160,0.15);">
-          <span style="font-size:13px; color:var(--text-muted);">✅ Renovou</span>
-          <span style="font-family:'Space Mono',monospace; font-size:15px; font-weight:700; color:var(--green-1);">59,46%</span>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(0,229,160,0.07);border-radius:8px;border:1px solid rgba(0,229,160,0.15);">
+          <span style="font-size:13px;color:var(--text-muted);">✅ Renovou</span>
+          <span style="font-family:'Space Mono',monospace;font-size:15px;font-weight:700;color:var(--green-1);">59,46%</span>
         </div>
-        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 14px; background:rgba(255,77,109,0.05); border-radius:8px; border:1px solid rgba(255,77,109,0.15);">
-          <span style="font-size:13px; color:var(--text-muted);">❌ Não renovou</span>
-          <span style="font-family:'Space Mono',monospace; font-size:15px; font-weight:700; color:var(--red);">40,54%</span>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(255,77,109,0.05);border-radius:8px;border:1px solid rgba(255,77,109,0.15);">
+          <span style="font-size:13px;color:var(--text-muted);">❌ Não renovou</span>
+          <span style="font-family:'Space Mono',monospace;font-size:15px;font-weight:700;color:var(--red);">40,54%</span>
         </div>
-        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 14px; background:rgba(255,209,102,0.05); border-radius:8px; border:1px solid rgba(255,209,102,0.12);">
-          <span style="font-size:13px; color:var(--text-muted);">🔄 Conversão Trial</span>
-          <span style="font-family:'Space Mono',monospace; font-size:15px; font-weight:700; color:var(--yellow);">15%</span>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(255,209,102,0.05);border-radius:8px;border:1px solid rgba(255,209,102,0.12);">
+          <span style="font-size:13px;color:var(--text-muted);">🔄 Conversão Trial</span>
+          <span style="font-family:'Space Mono',monospace;font-size:15px;font-weight:700;color:var(--yellow);">15%</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ROW 4: Status + Regions + Status Payment -->
+  <!-- ROW 4 -->
   <div class="grid-3b">
     <div class="section-card" style="animation-delay:0.45s">
       <div class="section-header">
         <div class="section-title">Status de Clientes</div>
         <div class="section-badge">DISTRIBUIÇÃO</div>
       </div>
-      <div style="height:160px; margin-bottom:16px;">
+      <div style="height:160px;margin-bottom:16px;">
         <canvas id="clientStatusChart"></canvas>
       </div>
       <div class="status-list">
         <div class="status-item">
           <div class="status-dot" style="background:var(--green-1)"></div>
-          <div class="status-info">
-            <span class="status-name">Ativo</span>
-            <span class="status-pct" style="color:var(--green-1)">69,78%</span>
-          </div>
+          <div class="status-info"><span class="status-name">Ativo</span><span class="status-pct" style="color:var(--green-1)">69,78%</span></div>
         </div>
         <div class="status-item">
           <div class="status-dot" style="background:var(--red)"></div>
-          <div class="status-info">
-            <span class="status-name">Churned</span>
-            <span class="status-pct" style="color:var(--red)">16,42%</span>
-          </div>
+          <div class="status-info"><span class="status-name">Churned</span><span class="status-pct" style="color:var(--red)">16,42%</span></div>
         </div>
         <div class="status-item">
           <div class="status-dot" style="background:var(--yellow)"></div>
-          <div class="status-info">
-            <span class="status-name">Trial</span>
-            <span class="status-pct" style="color:var(--yellow)">7,06%</span>
-          </div>
+          <div class="status-info"><span class="status-name">Trial</span><span class="status-pct" style="color:var(--yellow)">7,06%</span></div>
         </div>
         <div class="status-item">
           <div class="status-dot" style="background:#6ee7f7"></div>
-          <div class="status-info">
-            <span class="status-name">Suspenso</span>
-            <span class="status-pct" style="color:#6ee7f7">6,74%</span>
-          </div>
+          <div class="status-info"><span class="status-name">Suspenso</span><span class="status-pct" style="color:#6ee7f7">6,74%</span></div>
         </div>
       </div>
     </div>
@@ -852,21 +743,21 @@
         <div class="section-title">Status de Pagamento</div>
         <div class="section-badge">CARTEIRA</div>
       </div>
-      <div style="height:200px; margin-bottom:16px;">
+      <div style="height:200px;margin-bottom:16px;">
         <canvas id="payStatusChart"></canvas>
       </div>
-      <div style="display:flex; flex-direction:column; gap:8px; margin-top:8px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px;">
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;">
           <span style="color:var(--text-muted)">✅ Pago</span>
-          <span style="font-family:'Space Mono',monospace; color:var(--green-1); font-weight:700">77,88%</span>
+          <span style="font-family:'Space Mono',monospace;color:var(--green-1);font-weight:700">77,88%</span>
         </div>
-        <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;">
           <span style="color:var(--text-muted)">⏳ Pendente</span>
-          <span style="font-family:'Space Mono',monospace; color:var(--yellow); font-weight:700">13,16%</span>
+          <span style="font-family:'Space Mono',monospace;color:var(--yellow);font-weight:700">13,16%</span>
         </div>
-        <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;">
           <span style="color:var(--text-muted)">❌ Cancelado</span>
-          <span style="font-family:'Space Mono',monospace; color:var(--red); font-weight:700">8,96%</span>
+          <span style="font-family:'Space Mono',monospace;color:var(--red);font-weight:700">8,96%</span>
         </div>
       </div>
     </div>
@@ -884,17 +775,17 @@
     <div class="insight-card danger">
       <div class="insight-icon">🏢</div>
       <div class="insight-title">Risco Enterprise</div>
-      <div class="insight-text">Plano Enterprise concentra o maior churn em valor ($133,7 Mil). Retenção de grandes contas é o maior risco financeiro.</div>
+      <div class="insight-text">Plano Enterprise concentra o maior churn em valor (R$133,7 Mil). Retenção de grandes contas é o maior risco financeiro.</div>
     </div>
     <div class="insight-card">
       <div class="insight-icon">🎓</div>
       <div class="insight-title">Setor Educação</div>
-      <div class="insight-text">Setor mais rentável ($274,3 Mil), mas também com maior risco de churn (30,83%). Exige atenção com suporte e engajamento.</div>
+      <div class="insight-text">Setor mais rentável (R$274,3 Mil), mas também com maior risco de churn (30,83%). Exige atenção com suporte e engajamento.</div>
     </div>
     <div class="insight-card info">
       <div class="insight-icon">🗺️</div>
       <div class="insight-title">Surpresa Regional</div>
-      <div class="insight-text">Bahia lidera o ranking de receita ($340,1 Mil), superando São Paulo — possivelmente grandes contratos corporativos na região.</div>
+      <div class="insight-text">Bahia lidera o ranking de receita (R$340,1 Mil), superando São Paulo — possivelmente grandes contratos corporativos na região.</div>
     </div>
   </div>
 
@@ -905,240 +796,106 @@
 </footer>
 
 <script>
-// ---- CHART.JS DEFAULTS ----
 Chart.defaults.color = '#8ab09a';
 Chart.defaults.font.family = "'DM Sans', sans-serif";
 Chart.defaults.font.size = 12;
 
-const GREEN1 = '#00e5a0';
-const GREEN2 = '#00b87a';
-const GREEN3 = '#007a52';
-const RED = '#ff4d6d';
-const YELLOW = '#ffd166';
-const CYAN = '#6ee7f7';
-const CARD_BORDER = 'rgba(0,229,160,0.12)';
+const GREEN1='#00e5a0',GREEN2='#00b87a',GREEN3='#007a52',RED='#ff4d6d',YELLOW='#ffd166',CYAN='#6ee7f7',CARD_BORDER='rgba(0,229,160,0.12)';
 
-// ---- REVENUE LINE CHART ----
-const revCtx = document.getElementById('revenueChart').getContext('2d');
-const months = ['Jul/25','Ago/25','Set/25','Out/25','Nov/25','Jan/26'];
-new Chart(revCtx, {
-  type: 'line',
-  data: {
-    labels: months,
-    datasets: [
-      {
-        label: 'Receita Bruta',
-        data: [240, 255, 248, 262, 270, 275],
-        borderColor: GREEN1,
-        backgroundColor: 'rgba(0,229,160,0.07)',
-        borderWidth: 2.5,
-        pointBackgroundColor: GREEN1,
-        pointRadius: 4,
-        pointHoverRadius: 7,
-        tension: 0.45,
-        fill: true,
-      },
-      {
-        label: 'Receita Líquida',
-        data: [175, 188, 180, 195, 202, 210],
-        borderColor: GREEN3,
-        backgroundColor: 'rgba(0,122,82,0.05)',
-        borderWidth: 2,
-        pointBackgroundColor: GREEN3,
-        pointRadius: 4,
-        pointHoverRadius: 7,
-        tension: 0.45,
-        fill: true,
-      }
+// Revenue
+new Chart(document.getElementById('revenueChart').getContext('2d'),{
+  type:'line',
+  data:{
+    labels:['Jul/25','Ago/25','Set/25','Out/25','Nov/25','Jan/26'],
+    datasets:[
+      {label:'Receita Bruta',data:[240,255,248,262,270,275],borderColor:GREEN1,backgroundColor:'rgba(0,229,160,0.07)',borderWidth:2.5,pointBackgroundColor:GREEN1,pointRadius:4,pointHoverRadius:7,tension:0.45,fill:true},
+      {label:'Receita Líquida',data:[175,188,180,195,202,210],borderColor:GREEN3,backgroundColor:'rgba(0,122,82,0.05)',borderWidth:2,pointBackgroundColor:GREEN3,pointRadius:4,pointHoverRadius:7,tension:0.45,fill:true}
     ]
   },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { display: true, position: 'top', labels: { boxWidth: 10, padding: 14, font: { size: 11 } } },
-      tooltip: {
-        backgroundColor: '#1a2820',
-        borderColor: CARD_BORDER,
-        borderWidth: 1,
-        padding: 10,
-        callbacks: {
-          label: ctx => ` $${ctx.parsed.y} Mil`
-        }
-      }
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{
+      legend:{display:true,position:'top',labels:{boxWidth:10,padding:14,font:{size:11}}},
+      tooltip:{backgroundColor:'#1a2820',borderColor:CARD_BORDER,borderWidth:1,padding:10,callbacks:{label:ctx=>` R$${ctx.parsed.y} Mil`}}
     },
-    scales: {
-      x: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { font: { size: 11 } } },
-      y: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { font: { size: 11 }, callback: v => `$${v}` } }
+    scales:{
+      x:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{font:{size:11}}},
+      y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{font:{size:11},callback:v=>`R$${v}`}}
     }
   }
 });
 
-// ---- PLANS BAR CHART ----
-const plansCtx = document.getElementById('plansChart').getContext('2d');
-new Chart(plansCtx, {
-  type: 'bar',
-  data: {
-    labels: ['Basic', 'Professional', 'Starter', 'Enterprise'],
-    datasets: [{
-      data: [1658, 1128, 1122, 1092],
-      backgroundColor: [GREEN1, GREEN2, GREEN3, 'rgba(0,229,160,0.25)'],
-      borderRadius: 6,
-      borderSkipped: false,
-    }]
+// Plans bar
+new Chart(document.getElementById('plansChart').getContext('2d'),{
+  type:'bar',
+  data:{
+    labels:['Basic','Professional','Starter','Enterprise'],
+    datasets:[{data:[1658,1128,1122,1092],backgroundColor:[GREEN1,GREEN2,GREEN3,'rgba(0,229,160,0.25)'],borderRadius:6,borderSkipped:false}]
   },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.y} transações` } } },
-    scales: {
-      x: { grid: { display: false }, ticks: { font: { size: 11 } } },
-      y: { display: false }
-    }
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.y} transações`}}},
+    scales:{x:{grid:{display:false},ticks:{font:{size:11}}},y:{display:false}}
   }
 });
 
-// ---- SECTOR BARS ----
-const sectors = [
-  { name: 'Educação',   val: '$274,3 Mil', pct: 100 },
-  { name: 'Financeiro', val: '$263,8 Mil', pct: 96 },
-  { name: 'Varejo',     val: '$247,2 Mil', pct: 90 },
-  { name: 'Saúde',      val: '$183,5 Mil', pct: 67 },
-  { name: 'RH',         val: '$164,0 Mil', pct: 60 },
-  { name: 'Tecnologia', val: '$156,7 Mil', pct: 57 },
-  { name: 'Logística',  val: '$141,0 Mil', pct: 51 },
+// Sectors
+const sectors=[
+  {name:'Educação',val:'R$274,3 Mil',pct:100},
+  {name:'Financeiro',val:'R$263,8 Mil',pct:96},
+  {name:'Varejo',val:'R$247,2 Mil',pct:90},
+  {name:'Saúde',val:'R$183,5 Mil',pct:67},
+  {name:'RH',val:'R$164,0 Mil',pct:60},
+  {name:'Tecnologia',val:'R$156,7 Mil',pct:57},
+  {name:'Logística',val:'R$141,0 Mil',pct:51},
 ];
-const sectorList = document.getElementById('sectorList');
-sectors.forEach(s => {
-  sectorList.innerHTML += `
-    <div class="sector-item">
-      <div class="sector-top">
-        <span class="sector-name">${s.name}</span>
-        <span class="sector-val">${s.val}</span>
-      </div>
-      <div class="sector-bar-bg"><div class="sector-bar-fill" style="width:${s.pct}%"></div></div>
-    </div>`;
+const sl=document.getElementById('sectorList');
+sectors.forEach(s=>{sl.innerHTML+=`<div class="sector-item"><div class="sector-top"><span class="sector-name">${s.name}</span><span class="sector-val">${s.val}</span></div><div class="sector-bar-bg"><div class="sector-bar-fill" style="width:${s.pct}%"></div></div></div>`;});
+
+// Payment donut
+new Chart(document.getElementById('paymentDonut').getContext('2d'),{
+  type:'doughnut',
+  data:{labels:['Pago','Pendente','Cancelado'],datasets:[{data:[77.88,13.16,8.96],backgroundColor:[GREEN1,YELLOW,RED],borderColor:'#1a2820',borderWidth:3,hoverOffset:8}]},
+  options:{responsive:true,maintainAspectRatio:false,cutout:'65%',plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.label}: ${ctx.parsed}%`}}}}
 });
 
-// ---- PAYMENT DONUT ----
-const payCtx = document.getElementById('paymentDonut').getContext('2d');
-new Chart(payCtx, {
-  type: 'doughnut',
-  data: {
-    labels: ['Pago', 'Pendente', 'Cancelado'],
-    datasets: [{
-      data: [77.88, 13.16, 8.96],
-      backgroundColor: [GREEN1, YELLOW, RED],
-      borderColor: '#1a2820',
-      borderWidth: 3,
-      hoverOffset: 8,
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    cutout: '65%',
-    plugins: {
-      legend: { display: false },
-      tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.parsed}%` } }
-    }
+// Renewal donut
+new Chart(document.getElementById('renewalChart').getContext('2d'),{
+  type:'doughnut',
+  data:{labels:['Sim','Não'],datasets:[{data:[59.46,40.54],backgroundColor:[GREEN1,'rgba(255,77,109,0.7)'],borderColor:'#1a2820',borderWidth:3,hoverOffset:8}]},
+  options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.label}: ${ctx.parsed}%`}}}}
+});
+
+// Client status
+new Chart(document.getElementById('clientStatusChart').getContext('2d'),{
+  type:'doughnut',
+  data:{labels:['Ativo','Churned','Trial','Suspenso'],datasets:[{data:[69.78,16.42,7.06,6.74],backgroundColor:[GREEN1,RED,YELLOW,CYAN],borderColor:'#1a2820',borderWidth:3,hoverOffset:8}]},
+  options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.label}: ${ctx.parsed}%`}}}}
+});
+
+// Pay status bar
+new Chart(document.getElementById('payStatusChart').getContext('2d'),{
+  type:'bar',
+  data:{labels:['Pago','Pendente','Cancelado'],datasets:[{data:[77.88,13.16,8.96],backgroundColor:[GREEN1,YELLOW,RED],borderRadius:8,borderSkipped:false}]},
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.y}%`}}},
+    scales:{x:{grid:{display:false},ticks:{font:{size:12}}},y:{grid:{color:'rgba(255,255,255,0.04)'},max:100,ticks:{callback:v=>`${v}%`}}}
   }
 });
 
-// ---- RENEWAL PIE ----
-const renCtx = document.getElementById('renewalChart').getContext('2d');
-new Chart(renCtx, {
-  type: 'doughnut',
-  data: {
-    labels: ['Sim', 'Não'],
-    datasets: [{
-      data: [59.46, 40.54],
-      backgroundColor: [GREEN1, 'rgba(255,77,109,0.7)'],
-      borderColor: '#1a2820',
-      borderWidth: 3,
-      hoverOffset: 8,
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    cutout: '60%',
-    plugins: {
-      legend: { display: false },
-      tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.parsed}%` } }
-    }
-  }
-});
-
-// ---- CLIENT STATUS PIE ----
-const csCtx = document.getElementById('clientStatusChart').getContext('2d');
-new Chart(csCtx, {
-  type: 'doughnut',
-  data: {
-    labels: ['Ativo', 'Churned', 'Trial', 'Suspenso'],
-    datasets: [{
-      data: [69.78, 16.42, 7.06, 6.74],
-      backgroundColor: [GREEN1, RED, YELLOW, CYAN],
-      borderColor: '#1a2820',
-      borderWidth: 3,
-      hoverOffset: 8,
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    cutout: '60%',
-    plugins: {
-      legend: { display: false },
-      tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.parsed}%` } }
-    }
-  }
-});
-
-// ---- PAY STATUS BAR ----
-const psCtx = document.getElementById('payStatusChart').getContext('2d');
-new Chart(psCtx, {
-  type: 'bar',
-  data: {
-    labels: ['Pago', 'Pendente', 'Cancelado'],
-    datasets: [{
-      data: [77.88, 13.16, 8.96],
-      backgroundColor: [GREEN1, YELLOW, RED],
-      borderRadius: 8,
-      borderSkipped: false,
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.y}%` } } },
-    scales: {
-      x: { grid: { display: false }, ticks: { font: { size: 12 } } },
-      y: { grid: { color: 'rgba(255,255,255,0.04)' }, max: 100, ticks: { callback: v => `${v}%` } }
-    }
-  }
-});
-
-// ---- REGIONS ----
-const regions = [
-  { state: 'BA', val: '$340,1 Mil', pct: 100 },
-  { state: 'SP', val: '$231,6 Mil', pct: 68 },
-  { state: 'AM', val: '$179,1 Mil', pct: 53 },
-  { state: 'RJ', val: '$176,7 Mil', pct: 52 },
-  { state: 'PR', val: '$132,6 Mil', pct: 39 },
-  { state: 'CE', val: '$125,2 Mil', pct: 37 },
-  { state: 'MG', val: '$120,9 Mil', pct: 36 },
+// Regions
+const regions=[
+  {state:'BA',val:'R$340,1 Mil',pct:100},
+  {state:'SP',val:'R$231,6 Mil',pct:68},
+  {state:'AM',val:'R$179,1 Mil',pct:53},
+  {state:'RJ',val:'R$176,7 Mil',pct:52},
+  {state:'PR',val:'R$132,6 Mil',pct:39},
+  {state:'CE',val:'R$125,2 Mil',pct:37},
+  {state:'MG',val:'R$120,9 Mil',pct:36},
 ];
-const regionList = document.getElementById('regionList');
-regions.forEach((r, i) => {
-  regionList.innerHTML += `
-    <div class="region-item">
-      <div class="region-rank">${i+1}</div>
-      <div class="region-name">${r.state}</div>
-      <div class="region-bar-bg"><div class="region-bar-fill" style="width:${r.pct}%"></div></div>
-      <div class="region-val">${r.val}</div>
-    </div>`;
-});
+const rl=document.getElementById('regionList');
+regions.forEach((r,i)=>{rl.innerHTML+=`<div class="region-item"><div class="region-rank">${i+1}</div><div class="region-name">${r.state}</div><div class="region-bar-bg"><div class="region-bar-fill" style="width:${r.pct}%"></div></div><div class="region-val">${r.val}</div></div>`;});
 </script>
 </body>
 </html>
