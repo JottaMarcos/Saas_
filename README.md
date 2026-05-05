@@ -19,7 +19,7 @@
 ---
 Dashboard Ao Vivo 
 
-[🔗 Clique Aqui para ver o Dashboard](https://jottamarcos.github.io/Saas_/)
+[🔗 Clique Aqui para ver o Dashboard](https://jmanalytics-br.github.io/Saas_/)
 
 ---
 
